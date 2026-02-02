@@ -39,9 +39,11 @@ const Footer = () => {
     links: { to: string; label: string }[];
   }) => (
     <div>
-      <h3 className="text-lg font-semibold mb-5 relative inline-block
+      <h3
+        className="text-lg font-semibold mb-5 relative inline-block
         after:content-[''] after:absolute after:bottom-[-8px] after:left-0 after:w-8 after:h-1
-        after:bg-gradient-to-r after:from-gradient-start after:to-gradient-end after:rounded-full">
+        after:bg-gradient-to-r after:from-gradient-start after:to-gradient-end after:rounded-full"
+      >
         {title}
       </h3>
       <ul className="list-none flex flex-col gap-3">
@@ -71,10 +73,13 @@ const Footer = () => {
               to="/"
               className="inline-flex items-center text-2xl font-bold text-text no-underline hover:text-text"
             >
-              <span>Huỳnh Sang</span>
-              <span className="text-primary">.</span>
+              <span className="hover:text-primary-hover transition-colors duration-300">
+                Bùi Văn Huy
+              </span>
             </Link>
-            <p className="text-text-light max-w-[300px]">{t("footer.tagline")}</p>
+            <p className="text-text-light max-w-[300px]">
+              {t("footer.tagline")}
+            </p>
           </div>
 
           {/* Links */}
@@ -99,19 +104,30 @@ const Footer = () => {
 
           {/* Social */}
           <div className="lg:col-span-1 md:col-span-2">
-            <h3 className="text-lg font-semibold mb-5 relative inline-block
+            <h3
+              className="text-lg font-semibold mb-5 relative inline-block
               after:content-[''] after:absolute after:bottom-[-8px] after:left-0 after:w-8 after:h-1
-              after:bg-gradient-to-r after:from-gradient-start after:to-gradient-end after:rounded-full">
+              after:bg-gradient-to-r after:from-gradient-start after:to-gradient-end after:rounded-full"
+            >
               {t("footer.connect")}
             </h3>
             <div className="flex gap-4">
-              <SocialLink href="https://github.com/HuynhSang2005" label="GitHub">
+              <SocialLink
+                href="https://github.com/HuynhSang2005"
+                label="GitHub"
+              >
                 <Github size={20} />
               </SocialLink>
-              <SocialLink href="https://www.linkedin.com/in/nghuynhsang/" label="LinkedIn">
+              <SocialLink
+                href="https://www.linkedin.com/in/nghuynhsang/"
+                label="LinkedIn"
+              >
                 <Linkedin size={20} />
               </SocialLink>
-              <SocialLink href="https://www.facebook.com/ng.huynhsangg" label="Facebook">
+              <SocialLink
+                href="https://www.facebook.com/ng.huynhsangg"
+                label="Facebook"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20"
@@ -126,7 +142,10 @@ const Footer = () => {
                   <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
                 </svg>
               </SocialLink>
-              <SocialLink href="https://www.instagram.com/ng.huynhsang/" label="Instagram">
+              <SocialLink
+                href="https://www.instagram.com/ng.huynhsang/"
+                label="Instagram"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20"

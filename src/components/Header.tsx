@@ -40,7 +40,6 @@ const Header = () => {
   const navLinks = [
     { path: "/", label: t("nav.home") },
     { path: "/skills", label: t("nav.skills") },
-    { path: "/experience", label: t("nav.experience") },
     { path: "/projects", label: t("nav.projects") },
     { path: "/about", label: t("nav.about") },
     { path: "/contact", label: t("nav.contact") },
@@ -103,7 +102,7 @@ const Header = () => {
       className={`fixed top-0 left-0 w-full z-50 py-4 transition-all duration-300
         ${isScrolled ? "bg-bg/85 backdrop-blur-md shadow-lg py-3" : ""}`}
     >
-      <div className="container py-7.25 flex items-center justify-between">
+      <div className="container flex items-center justify-between">
         {/* Left side - Logo & Mobile Controls */}
         <div className="flex items-center gap-4">
           <Link
@@ -111,8 +110,7 @@ const Header = () => {
             className="flex items-center text-xl font-bold text-text whitespace-nowrap no-underline hover:text-text"
             onClick={closeMenu}
           >
-            <span className="transition-colors duration-300">Huỳnh Sang</span>
-            <span className="text-primary ml-0.5">.</span>
+            <span className="hover:text-primary-hover transition-colors duration-300">BVH</span>
           </Link>
 
           {/* Mobile controls - visible on tablet */}
