@@ -36,13 +36,21 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
     localStorage.setItem("theme", theme)
 
     const updateTheme = () => {
+      let resolvedTheme: "light" | "dark"
+      
       if (theme === "system") {
-        const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
-        setCurrentTheme(systemTheme)
-        document.documentElement.setAttribute("data-theme", systemTheme)
+        resolvedTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
       } else {
-        setCurrentTheme(theme)
-        document.documentElement.setAttribute("data-theme", theme)
+        resolvedTheme = theme
+      }
+      
+      setCurrentTheme(resolvedTheme)
+      
+      // Tailwind dark mode: toggle 'dark' class on <html>
+      if (resolvedTheme === "dark") {
+        document.documentElement.classList.add("dark")
+      } else {
+        document.documentElement.classList.remove("dark")
       }
     }
 
