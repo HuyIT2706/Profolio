@@ -1,15 +1,18 @@
-import { RouterProvider } from "react-router-dom";
-import "./App.css";
-import appRouter from "./routing/Routing";
+import { ThemeProvider } from "./contexts/ThemeContext"
+import { LanguageProvider } from "./contexts/LanguageContext"
+import RouterApp from "./routing/RouterApp"
+import { RouterProvider } from "react-router-dom"
+import "./styles/App.css"
+
 
 function App() {
   return (
-    <>
-      <div className="bg-main">
-        <RouterProvider router={appRouter} />
-      </div>
-    </>
-  );
+    <LanguageProvider>
+      <ThemeProvider>
+        <RouterProvider router={RouterApp} />
+      </ThemeProvider>
+    </LanguageProvider>
+  )
 }
 
-export default App;
+export default App
