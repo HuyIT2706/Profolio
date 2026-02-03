@@ -27,10 +27,10 @@ interface ThemeProviderProps {
 export const ThemeProvider = ({ children }: ThemeProviderProps) => {
   const [theme, setTheme] = useState<Theme>(() => {
     const savedTheme = localStorage.getItem("theme")
-    return (savedTheme as Theme) || "system"
+    return (savedTheme as Theme) || "dark"
   })
 
-  const [currentTheme, setCurrentTheme] = useState<"light" | "dark">("light")
+  const [currentTheme, setCurrentTheme] = useState<"light" | "dark">("dark")
 
   useEffect(() => {
     localStorage.setItem("theme", theme)
@@ -46,7 +46,6 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
       
       setCurrentTheme(resolvedTheme)
       
-      // Tailwind dark mode: toggle 'dark' class on <html>
       if (resolvedTheme === "dark") {
         document.documentElement.classList.add("dark")
       } else {
