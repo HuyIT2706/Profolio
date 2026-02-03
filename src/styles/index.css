@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 
 @theme {
   --color-primary: #9333ea;
@@ -20,6 +19,7 @@
   --color-info: #3b82f6;
   --font-family-sans: "Inter", sans-serif;
 }
+
 .dark {
   --color-primary: #a855f7;
   --color-primary-hover: #c084fc;
@@ -39,6 +39,7 @@ html {
 body {
   background-color: var(--color-bg);
   color: var(--color-text);
+  font-family: "Inter", sans-serif;
 }
 
 .container {
