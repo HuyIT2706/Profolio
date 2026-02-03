@@ -75,44 +75,6 @@ export const vi = {
   "skills.learning3":
     "Nghiên cứu các dịch vụ AWS cho việc triển khai đám mây và cơ sở hạ tầng.",
 
-  // Experience Page
-  "experience.title": "Kinh nghiệm",
-  "experience.subtitle": "Hành trình chuyên nghiệp của tôi",
-  "experience.education": "Học vấn",
-  "experience.work": "Kinh nghiệm làm việc",
-  "experience.projects": "Dự án",
-  "experience.period1": "2023 - Hiện tại",
-  "experience.university": "Đại học Giao thông Vận tải TP.HCM",
-  "experience.degree": "Cử nhân Công nghệ Thông tin",
-  "experience.universityDesc":
-    "Học về nền tảng khoa học máy tính, thuật toán, cấu trúc dữ liệu và nguyên tắc kỹ thuật phần mềm. Tập trung vào phát triển web và các framework JavaScript hiện đại.",
-  "experience.period2": "2020 - 2023",
-  "experience.highSchool": "THPT Cao Lãnh 2",
-  "experience.track": "Khối Tự nhiên",
-  "experience.highSchoolDesc":
-    "Tập trung vào toán học, vật lý, tiếng anh và khoa học máy tính. Xây dựng nền tảng kiến thức vững chắc chuẩn bị cho con đường IT.",
-  "experience.workPeriod1": "2023 - Hiện tại",
-  "experience.workTitle1": "Lập trình viên Web Freelance",
-  "experience.workLocation1": "Từ xa",
-  "experience.workDesc1":
-    "Phát triển các trang web và ứng dụng web đáp ứng cho khách hàng. Làm việc với React, Node.js và các công nghệ frontend và backend khác nhau.",
-  "experience.workPeriod2": "Mùa hè 2023",
-  "experience.workTitle2": "Thực tập sinh Phát triển Web",
-  "experience.workLocation2": "Công ty Công nghệ, TP.HCM",
-  "experience.workDesc2":
-    "Hỗ trợ phát triển và bảo trì các ứng dụng web. Làm việc với đội ngũ frontend để triển khai các thành phần và tính năng UI.",
-  "experience.projectPeriod1": "2024",
-  "experience.projectTitle1": "Nền tảng Thương mại Điện tử",
-  "experience.projectDesc1":
-    "Phát triển ứng dụng thương mại điện tử full-stack với xác thực người dùng, quản lý sản phẩm và tích hợp thanh toán sử dụng React và Node.js.",
-  "experience.projectPeriod2": "2023",
-  "experience.projectTitle2": "Ứng dụng Quản lý Công việc",
-  "experience.projectDesc2":
-    "Xây dựng ứng dụng quản lý công việc đáp ứng với chức năng kéo và thả và cập nhật thời gian thực sử dụng React và TypeScript.",
-  "experience.projectPeriod3": "2023",
-  "experience.projectTitle3": "Bảng điều khiển Thời tiết",
-  "experience.projectDesc3":
-    "Tạo bảng điều khiển thời tiết hiển thị thời tiết hiện tại và dự báo cho nhiều địa điểm sử dụng API thời tiết và React.",
 
   // Projects Page
   "projects.title": "Dự án",
@@ -143,13 +105,13 @@ export const vi = {
   "about.title": "Về tôi",
   "about.subtitle": "Tìm hiểu thêm về tôi",
   "about.intro":
-    "Xin chào! Tôi là Nguyễn Huỳnh Sang, một sinh viên và lập trình viên web tại TP.HCM, Việt Nam.",
+    "Xin chào! Tôi là Bùi Văn Huy, một sinh viên và lập trình viên web tại TP.HCM, Việt Nam.",
   "about.paragraph1":
     "Tôi hiện đang theo học ngành Công nghệ Thông tin tại Đại học Giao thông Vận tải TP.HCM (từ năm 2023), nơi tôi đang phát triển nền tảng vững chắc về khoa học máy tính và nguyên tắc kỹ thuật phần mềm.",
   "about.paragraph2":
     "Niềm đam mê của tôi nằm ở phát triển web, đặc biệt là tạo ra các giao diện đáp ứng và thân thiện với người dùng. Tôi thích làm việc với các công nghệ hiện đại như React, TypeScript, Node.js, Express và NestJS để xây dựng các ứng dụng full-stack.",
   "about.paragraph3":
-    "Khi không viết code, tôi thích nghe nhạc rap, chơi bóng đá (fan cuồng của Real Madrid!), chăm sóc mèo và ngồi cafe cùng bạn bè thân thiết. Tôi tin vào việc liên tục học hỏi, khám phá và tạo ra những giải pháp sáng tạo.",
+    "Khi không lập trình, tôi thích đến phòng tập thể dục để cải thiện sức khỏe và dành thời gian với đội ngũ huấn luyện của mình. Tôi tin vào việc học hỏi không ngừng, khám phá và tạo ra những giải pháp sáng tạo.",
   "about.name": "Tên",
   "about.education": "Học vấn",
   "about.degree": "Bằng cấp",
@@ -161,7 +123,7 @@ export const vi = {
   "about.universityDesc":
     "Học về nền tảng khoa học máy tính, thuật toán, cấu trúc dữ liệu và nguyên tắc kỹ thuật phần mềm. Tập trung vào phát triển web và các framework JavaScript.",
   "about.educationPeriod2": "2020 - 2023",
-  "about.highSchool": "THPT Cao Lãnh 2",
+  "about.highSchool": "THPT Nguyễn Thái Bình",
   "about.highSchoolTrack": "Khối Khoa học",
   "about.highSchoolDesc":
     "Tập trung vào toán học, vật lý và khoa học máy tính. Xây dựng nền tảng vững chắc cho việc học IT.",

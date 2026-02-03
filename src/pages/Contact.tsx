@@ -21,10 +21,12 @@ const Contact = () => {
     subject: "",
     message: "",
   });
-  const [formStatus, setFormStatus] = useState<"idle" | "success" | "error">("idle");
+  const [formStatus, setFormStatus] = useState<"idle" | "success" | "error">(
+    "idle",
+  );
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -74,8 +76,10 @@ const Contact = () => {
     value: string;
   }) => (
     <div className="flex gap-4 items-start">
-      <div className="flex items-center justify-center w-10 h-10 rounded-full
-        bg-gradient-to-br from-gradient-start to-gradient-end text-white shrink-0">
+      <div
+        className="flex items-center justify-center w-10 h-10 rounded-full
+        bg-gradient-to-br from-gradient-start to-gradient-end text-white shrink-0"
+      >
         {icon}
       </div>
       <div>
@@ -90,7 +94,9 @@ const Contact = () => {
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-gradient-start to-gradient-end text-white text-center">
         <div className="container">
-          <h1 className="text-4xl md:text-5xl font-bold mb-2">{t("contact.title")}</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-2">
+            {t("contact.title")}
+          </h1>
           <p className="text-lg md:text-xl max-w-[700px] mx-auto opacity-90">
             {t("contact.subtitle")}
           </p>
@@ -104,7 +110,9 @@ const Contact = () => {
             {/* Contact Info */}
             <div className="bg-card rounded-2xl p-6 md:p-10 shadow-lg shadow-shadow flex flex-col gap-8">
               <div>
-                <h2 className="text-2xl font-bold mb-4">{t("contact.getInTouch")}</h2>
+                <h2 className="text-2xl font-bold mb-4">
+                  {t("contact.getInTouch")}
+                </h2>
                 <p className="text-text-light">{t("contact.getInTouchText")}</p>
               </div>
 
@@ -112,7 +120,7 @@ const Contact = () => {
                 <ContactDetail
                   icon={<Mail size={20} />}
                   title={t("contact.email")}
-                  value="huynhsang060305@email.com"
+                  value="buivanhuy2706@gmail.com"
                 />
                 <ContactDetail
                   icon={<MapPin size={20} />}
@@ -124,19 +132,34 @@ const Contact = () => {
               <div className="mt-auto">
                 <h3 className="font-semibold mb-4">{t("contact.orConnect")}</h3>
                 <div className="flex gap-4">
-                  <SocialLink href="https://github.com/" label="GitHub">
+                  <SocialLink
+                    href="https://github.com/HuyIT2706"
+                    label="GitHub"
+                  >
                     <Github size={20} />
                   </SocialLink>
-                  <SocialLink href="https://linkedin.com/in/" label="LinkedIn">
+                  <SocialLink
+                    href="https://www.linkedin.com/in/bvanhuy2706/"
+                    label="LinkedIn"
+                  >
                     <Linkedin size={20} />
                   </SocialLink>
-                  <SocialLink href="https://facebook.com/" label="Facebook">
+                  <SocialLink
+                    href="https://www.facebook.com/bui.van.huy.757044/"
+                    label="Facebook"
+                  >
                     <Facebook size={20} />
                   </SocialLink>
-                  <SocialLink href="https://instagram.com/" label="Instagram">
+                  <SocialLink
+                    href="https://www.instagram.com/buivanhuy333/"
+                    label="Instagram"
+                  >
                     <Instagram size={20} />
                   </SocialLink>
-                  <SocialLink href="mailto:example@email.com" label="Email">
+                  <SocialLink
+                    href="mailto:buivanhuy2706@gmail.com"
+                    label="Email"
+                  >
                     <Mail size={20} />
                   </SocialLink>
                 </div>

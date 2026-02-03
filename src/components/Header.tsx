@@ -1,16 +1,14 @@
-
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useTheme } from "../contexts/ThemeContext";
 import { useLanguage } from "../contexts/LanguageContext";
-import { Sun, Moon, Laptop, Menu, X } from "lucide-react";
+import { Sun, Moon, Menu, X, Home, User, Briefcase, Code, Mail, Monitor } from "lucide-react";
 
 const Header = () => {
   const { theme, setTheme } = useTheme();
   const { language, setLanguage, t } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [scrollProgress, setScrollProgress] = useState(0);
   const location = useLocation();
 
   const toggleMenu = () => {
@@ -23,14 +21,7 @@ const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      const scrollHeight =
-        document.documentElement.scrollHeight -
-        document.documentElement.clientHeight;
-      const scrollPercentage = (scrollPosition / scrollHeight) * 100;
-
-      setIsScrolled(scrollPosition > 20);
-      setScrollProgress(scrollPercentage);
+      setIsScrolled(window.scrollY > 20);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -38,155 +29,159 @@ const Header = () => {
   }, []);
 
   const navLinks = [
-    { path: "/", label: t("nav.home") },
-    { path: "/skills", label: t("nav.skills") },
-    { path: "/projects", label: t("nav.projects") },
-    { path: "/about", label: t("nav.about") },
-    { path: "/contact", label: t("nav.contact") },
+    { path: "/", label: t("nav.home"), icon: Home },
+    { path: "/about", label: t("nav.about"), icon: User },
+    { path: "/skills", label: t("nav.skills"), icon: Code },
+    { path: "/projects", label: t("nav.projects"), icon: Briefcase },
+    { path: "/contact", label: t("nav.contact"), icon: Mail },
   ];
 
-  const ThemeButtons = ({ size = 18 }: { size?: number }) => (
-    <>
-      <button
-        className={`flex items-center justify-center bg-transparent border-none rounded-full p-2 text-text-light transition-all duration-300 cursor-pointer
-          ${theme === "light" ? "bg-primary text-white" : "hover:text-text"}`}
-        onClick={() => setTheme("light")}
-        aria-label="Light mode"
-      >
-        <Sun size={size} />
-      </button>
-      <button
-        className={`flex items-center justify-center bg-transparent border-none rounded-full p-2 text-text-light transition-all duration-300 cursor-pointer
-          ${theme === "system" ? "bg-primary text-white" : "hover:text-text"}`}
-        onClick={() => setTheme("system")}
-        aria-label="System theme"
-      >
-        <Laptop size={size} />
-      </button>
-      <button
-        className={`flex items-center justify-center bg-transparent border-none rounded-full p-2 text-text-light transition-all duration-300 cursor-pointer
-          ${theme === "dark" ? "bg-primary text-white" : "hover:text-text"}`}
-        onClick={() => setTheme("dark")}
-        aria-label="Dark mode"
-      >
-        <Moon size={size} />
-      </button>
-    </>
-  );
+  // Get current theme icon
+  const getThemeIcon = () => {
+    if (theme === "light") return <Sun size={18} />;
+    if (theme === "dark") return <Moon size={18} />;
+    return <Monitor size={18} />;
+  };
 
-  // Language toggle component
-  const LanguageToggle = () => (
-    <>
-      <button
-        className={`bg-transparent border-none font-medium p-1 transition-colors duration-300 cursor-pointer
-          ${language === "en" ? "text-primary font-semibold" : "text-text-light hover:text-text"}`}
-        onClick={() => setLanguage("en")}
-        aria-label="English"
-      >
-        EN
-      </button>
-      <span className="text-text-light">|</span>
-      <button
-        className={`bg-transparent border-none font-medium p-1 transition-colors duration-300 cursor-pointer
-          ${language === "vi" ? "text-primary font-semibold" : "text-text-light hover:text-text"}`}
-        onClick={() => setLanguage("vi")}
-        aria-label="Vietnamese"
-      >
-        VI
-      </button>
-    </>
-  );
+  // Cycle through themes
+  const cycleTheme = () => {
+    if (theme === "light") setTheme("dark");
+    else if (theme === "dark") setTheme("system");
+    else setTheme("light");
+  };
 
   return (
     <header
       className={`fixed top-0 left-0 w-full z-50 py-4 transition-all duration-300
-        ${isScrolled ? "bg-bg/85 backdrop-blur-md shadow-lg py-3" : ""}`}
+        ${isScrolled ? "py-3" : ""}`}
     >
-      <div className="container flex items-center justify-between">
-        {/* Left side - Logo & Mobile Controls */}
-        <div className="flex items-center gap-4">
+      <div className="container flex items-center justify-center">
+        {/* Pill Navigation Container */}
+        <div className={`flex items-center gap-2 bg-bg/80 backdrop-blur-md rounded-full px-3 py-2 shadow-lg shadow-shadow/30 border border-border/50
+          transition-all duration-300 ${isScrolled ? "bg-bg/95" : ""}`}>
+          
+          {/* Logo */}
           <Link
             to="/"
-            className="flex items-center text-xl font-bold text-text whitespace-nowrap no-underline hover:text-text"
+            className="flex items-center px-3 py-1.5 text-sm font-bold text-text-light hover:text-text transition-colors duration-300"
             onClick={closeMenu}
           >
-            <span className="hover:text-primary-hover transition-colors duration-300">BVH</span>
+            BVHuy
           </Link>
 
-          {/* Mobile controls - visible on tablet */}
-          <div className="hidden md:hidden sm:flex items-center gap-3 ml-3">
-            <div className="flex items-center bg-bg-alt rounded-full p-1">
-              <ThemeButtons size={16} />
-            </div>
-            <div className="flex items-center gap-1">
-              <LanguageToggle />
-            </div>
-          </div>
-        </div>
-
-        {/* Right side - Nav, Controls, Menu Toggle */}
-        <div className="flex items-center gap-8">
-          {/* Navigation */}
-          <nav
-            className={`md:static md:w-auto md:h-auto md:bg-transparent md:shadow-none md:p-0 md:translate-x-0
-              fixed top-0 right-0 w-[70%] h-screen bg-bg shadow-[-2px_0_10px] shadow-shadow z-[1001] pt-20 px-8 pb-8
-              transition-transform duration-300 ease-in-out
-              ${isMenuOpen ? "translate-x-0" : "translate-x-full md:translate-x-0"}`}
-          >
-            <ul className="flex md:flex-row flex-col list-none gap-6 md:gap-6">
-              {navLinks.map((link) => (
-                <li key={link.path}>
-                  <Link
-                    to={link.path}
-                    className={`text-text font-medium relative transition-colors duration-300 no-underline
-                      after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:h-0.5 after:rounded-full
-                      after:bg-gradient-to-r after:from-gradient-start after:to-gradient-end after:transition-all after:duration-300
-                      ${location.pathname === link.path ? "after:w-full" : "after:w-0 hover:after:w-full"}`}
-                    onClick={closeMenu}
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-
-            {/* Controls inside mobile nav */}
-            <div className="md:hidden flex flex-col gap-4 mt-8">
-              <div className="flex items-center bg-bg-alt rounded-full p-1 w-fit">
-                <ThemeButtons size={18} />
-              </div>
-              <div className="flex items-center gap-1">
-                <LanguageToggle />
-              </div>
-            </div>
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center">
+            {navLinks.map((link) => {
+              const Icon = link.icon;
+              const isActive = location.pathname === link.path;
+              return (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  className={`flex items-center gap-2 px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-300
+                    ${isActive 
+                      ? "bg-white text-gray-900 shadow-md" 
+                      : "text-text-light hover:text-text hover:bg-bg-alt/50"
+                    }`}
+                  onClick={closeMenu}
+                >
+                  <Icon size={16} />
+                  <span>{link.label}</span>
+                </Link>
+              );
+            })}
           </nav>
 
-          {/* Desktop Controls */}
-          <div className="hidden md:flex items-center gap-4">
-            <div className="flex items-center bg-bg-alt rounded-full p-1">
-              <ThemeButtons size={18} />
-            </div>
-            <div className="flex items-center gap-1">
-              <LanguageToggle />
-            </div>
+          {/* Divider */}
+          <div className="hidden md:block w-px h-6 bg-border/50 mx-1" />
+
+          {/* Right Controls */}
+          <div className="hidden md:flex items-center gap-1">
+            {/* Language Toggle */}
+            <button
+              className={`px-2 py-1.5 rounded-full text-sm font-medium transition-all duration-300 
+                ${language === "vi" ? "text-text" : "text-text-light hover:text-text hover:cursor-pointer"}`}
+              onClick={() => setLanguage(language === "en" ? "vi" : "en")}
+            >
+              {language.toUpperCase()}
+            </button>
+
+            {/* Theme Toggle */}
+            <button
+              className="flex items-center justify-center w-8 h-8 rounded-full text-text-light hover:text-text hover:bg-bg-alt/50 hover:cursor-pointer transition-all duration-300"
+              onClick={cycleTheme}
+              aria-label="Toggle theme"
+            >
+              {getThemeIcon()}
+            </button>
           </div>
 
-          {/* Menu Toggle Button */}
+          {/* Mobile Menu Toggle */}
           <button
-            className="md:hidden flex bg-transparent border-none text-text z-[1002] cursor-pointer"
+            className="md:hidden flex items-center justify-center w-8 h-8 rounded-full text-text-light hover:text-text transition-all duration-300"
             onClick={toggleMenu}
             aria-label="Toggle menu"
           >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
       </div>
 
-      {/* Progress Bar */}
+      {/* Mobile Menu */}
       <div
-        className="absolute bottom-0 left-0 h-[3px] bg-gradient-to-r from-gradient-start to-gradient-end transition-all duration-300"
-        style={{ width: `${scrollProgress}%` }}
-      />
+        className={`md:hidden fixed top-0 right-0 w-[75%] h-screen bg-bg/95 backdrop-blur-md shadow-[-2px_0_20px] shadow-shadow z-[1001]
+          transition-transform duration-300 ease-in-out pt-20 px-6
+          ${isMenuOpen ? "translate-x-0" : "translate-x-full"}`}
+      >
+        <nav className="flex flex-col gap-2">
+          {navLinks.map((link) => {
+            const Icon = link.icon;
+            const isActive = location.pathname === link.path;
+            return (
+              <Link
+                key={link.path}
+                to={link.path}
+                className={`flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium transition-all duration-300
+                  ${isActive 
+                    ? "bg-primary text-white" 
+                    : "text-text hover:bg-bg-alt"
+                  }`}
+                onClick={closeMenu}
+              >
+                <Icon size={20} />
+                <span>{link.label}</span>
+              </Link>
+            );
+          })}
+        </nav>
+
+        {/* Mobile Controls */}
+        <div className="flex items-center gap-4 mt-8 pt-6 border-t border-border">
+          {/* Language */}
+          <button
+            className="flex items-center gap-2 px-4 py-2 rounded-full bg-bg-alt text-sm font-medium "
+            onClick={() => setLanguage(language === "en" ? "vi" : "en")}
+          >
+            {language === "en" ? "EN" : "VI"}
+          </button>
+
+          {/* Theme */}
+          <button
+            className="flex items-center justify-center w-10 h-10 rounded-full bg-bg-alt text-text "
+            onClick={cycleTheme}
+          >
+            {getThemeIcon()}
+          </button>
+        </div>
+      </div>
+
+      {/* Overlay */}
+      {isMenuOpen && (
+        <div
+          className="md:hidden fixed inset-0 bg-black/50 z-[1000]"
+          onClick={closeMenu}
+        />
+      )}
     </header>
   );
 };

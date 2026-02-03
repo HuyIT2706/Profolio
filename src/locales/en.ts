@@ -75,44 +75,6 @@ export const en = {
   "skills.learning3":
     "Studying AWS services for cloud deployment and infrastructure.",
 
-  // Experience Page
-  "experience.title": "Experience",
-  "experience.subtitle": "My professional journey",
-  "experience.education": "Education",
-  "experience.work": "Work Experience",
-  "experience.projects": "Projects",
-  "experience.period1": "2023 - Present",
-  "experience.university": "University of Transport Ho Chi Minh City",
-  "experience.degree": "Bachelor of Information Technology",
-  "experience.universityDesc":
-    "Studying computer science fundamentals, algorithms, data structures, and software engineering principles. Focusing on web development and modern JavaScript frameworks.",
-  "experience.period2": "2020 - 2023",
-  "experience.highSchool": "Cao Lanh 2 High School",
-  "experience.track": "Science Track",
-  "experience.highSchoolDesc":
-    "Focused on mathematics, physics, and computer science. Developed foundational knowledge that prepared me for my IT career path.",
-  "experience.workPeriod1": "2023 - Present",
-  "experience.workTitle1": "Freelance Web Developer",
-  "experience.workLocation1": "Remote",
-  "experience.workDesc1":
-    "Developing responsive websites and web applications for clients. Working with React, Node.js, and various frontend and backend technologies.",
-  "experience.workPeriod2": "Summer 2023",
-  "experience.workTitle2": "Web Development Intern",
-  "experience.workLocation2": "Tech Company, Ho Chi Minh City",
-  "experience.workDesc2":
-    "Assisted in developing and maintaining web applications. Worked with the frontend team to implement UI components and features.",
-  "experience.projectPeriod1": "2024",
-  "experience.projectTitle1": "E-commerce Platform",
-  "experience.projectDesc1":
-    "Developed a full-stack e-commerce application with user authentication, product management, and payment integration using React and Node.js.",
-  "experience.projectPeriod2": "2023",
-  "experience.projectTitle2": "Task Management App",
-  "experience.projectDesc2":
-    "Built a responsive task management application with drag-and-drop functionality and real-time updates using React and TypeScript.",
-  "experience.projectPeriod3": "2023",
-  "experience.projectTitle3": "Weather Dashboard",
-  "experience.projectDesc3":
-    "Created a weather dashboard that displays current weather and forecasts for multiple locations using a weather API and React.",
 
   // Projects Page
   "projects.title": "Projects",
@@ -143,13 +105,13 @@ export const en = {
   "about.title": "About Me",
   "about.subtitle": "Get to know me better",
   "about.intro":
-    "Hello! I'm Nguyễn Huỳnh Sang, a student and web developer based in Ho Chi Minh City, Vietnam.",
+    "Hello! Bùi Văn Huy, a student and web developer based in Ho Chi Minh City, Vietnam.",
   "about.paragraph1":
     "I am currently pursuing a degree in Information Technology at the University of Transport Ho Chi Minh City (since 2023), where I am developing a strong foundation in computer science and software engineering principles.",
   "about.paragraph2":
     "My passion lies in web development, particularly in creating responsive and user-friendly interfaces. I enjoy working with modern technologies like React, TypeScript, Node.js, Express, and NestJS to build full-stack applications.",
   "about.paragraph3":
-    "When I'm not coding, I enjoy listening to rap music, playing football (huge Real Madrid fan!), taking care of my cats, and hanging out at coffee shops with my close friends. I believe in constantly learning, exploring, and creating innovative solutions.",
+    "When I'm not programming, I enjoy going to the gym to improve my fitness and hanging out with my training team. I believe in continuous learning, exploration, and creating innovative solutions.",
   "about.name": "Name",
   "about.education": "Education",
   "about.degree": "Degree",
@@ -161,7 +123,7 @@ export const en = {
   "about.universityDesc":
     "Studying computer science fundamentals, algorithms, data structures, and software engineering principles. Focusing on web development and JavaScript frameworks.",
   "about.educationPeriod2": "2020 - 2023",
-  "about.highSchool": "Cao Lanh 2 High School",
+  "about.highSchool": "Nguyen Thai Binh High School",
   "about.highSchoolTrack": "Science Track",
   "about.highSchoolDesc":
     "Focused on mathematics, physics, and computer science. Built a strong foundation for my IT studies.",

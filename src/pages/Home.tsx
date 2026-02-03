@@ -16,7 +16,7 @@ import {
   Target,
 } from "lucide-react";
 import Avatar from "../assets/avatar.jpg";
-import ProjectUth from "../assets/project1.jpg"
+import ProjectUth from "../assets/project1.jpg";
 
 const Home = () => {
   const { t } = useLanguage();
@@ -34,7 +34,15 @@ const Home = () => {
       id: 1,
       title: t("home.project3Title"),
       description: t("home.project3Description"),
-      tags: ["React", "TypeScript", "Microservices", "Nestjs", "Docker", "PostgreSQL", "Tailwind"],
+      tags: [
+        "React",
+        "TypeScript",
+        "Microservices",
+        "Nestjs",
+        "Docker",
+        "PostgreSQL",
+        "Tailwind",
+      ],
     },
   ];
 
@@ -96,7 +104,7 @@ const Home = () => {
     <div className="pt-5">
       {/* Hero Section */}
       <section
-        className="min-h-[calc(100vh-4rem)] flex items-center relative"
+        className="min-h-[calc(100vh-6rem)] flex items-center relative"
         ref={heroRef}
       >
         <div className="container grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
@@ -412,9 +420,10 @@ const Home = () => {
                 data-animate
               >
                 <img
-                className="w-full h-[200px] " 
-                src= {ProjectUth} 
-                alt="UTH Conference Manager Systems" />
+                  className="w-full h-[200px] "
+                  src={ProjectUth}
+                  alt="UTH Conference Manager Systems"
+                />
                 <div className="p-6">
                   <h3 className="text-xl font-semibold mb-3">
                     {project.title}
@@ -469,21 +478,30 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-gradient-start to-gradient-end text-white">
-        <div className="container">
-          <div className="text-center max-w-[700px] mx-auto" data-animate>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              {t("home.ctaTitle")}
-            </h2>
-            <p className="text-lg mb-8 opacity-90">{t("home.ctaText")}</p>
-            <Link
-              to="/contact"
-              className="inline-flex items-center gap-2 bg-white text-primary px-6 py-3 rounded-lg font-medium
-                transition-all duration-300 hover:bg-white/90 hover:-translate-y-0.5"
-            >
-              {t("home.ctaButton")}
-              <ArrowRight size={16} />
-            </Link>
+      <section className="relative min-h-[400px] md:min-h-[500px] overflow-hidden">
+        <img
+          className="absolute inset-0 w-full h-full object-cover "
+          src={Avatar}
+          alt="CTA Background"
+        />
+        <div className="absolute inset-0 bg-bg opacity-70" />
+        
+        <div className="relative z-10 flex items-center justify-center min-h-[400px] md:min-h-[500px]">
+          <div className="container">
+            <div className="text-center max-w-[700px] mx-auto text-white" data-animate>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                {t("home.ctaTitle")}
+              </h2>
+              <p className="text-lg mb-8 opacity-90">{t("home.ctaText")}</p>
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-2 bg-white text-primary px-6 py-3 rounded-lg font-medium
+                  transition-all duration-300 hover:bg-white/90 hover:-translate-y-0.5"
+              >
+                {t("home.ctaButton")}
+                <ArrowRight size={16} />
+              </Link>
+            </div>
           </div>
         </div>
       </section>
