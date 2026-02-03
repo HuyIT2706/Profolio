@@ -2,7 +2,6 @@ export const en = {
   // Navigation
   "nav.home": "Home",
   "nav.skills": "Skills",
-  "nav.experience": "Experience",
   "nav.projects": "Projects",
   "nav.about": "About",
   "nav.contact": "Contact",
@@ -19,15 +18,15 @@ export const en = {
   "home.greeting": "Hi, I am",
   "home.role": "Student & Web Developer",
   "home.description":
-    "I'm a passionate web developer and student at University of Transport Ho Chi Minh City, specializing in creating modern web applications with JavaScript, TypeScript, React, Node.js, ExpressJs and NestJs.",
+    "I am a passionate web developer and a student at Ho Chi Minh City University of Transport, specializing in creating modern web applications using JavaScript, TypeScript, React, Node.js,NestJs.",
   "home.contactBtn": "Contact Me",
   "home.resumeBtn": "Download CV",
   "home.aboutTitle": "About Me",
   "home.aboutSubtitle": "Get to know me better",
   "home.aboutText1":
-    "I am Nguyen Huynh Sang, a student at the University of Transport Ho Chi Minh City with a passion for web development and software engineering.",
+    "My name is Bui Van Huy, a student at Ho Chi Minh City University of Transport, and I am passionate about web development and software engineering.",
   "home.aboutText2":
-    "I enjoy building web applications and exploring new technologies. My goal is to become a full-stack leader while helping those around me grow their skills too.",
+    "I enjoy building web applications and exploring new technologies. My goal is to become a full-stack developer while also helping others develop their skills and mine.",
   "home.university": "University:",
   "home.location": "Location:",
   "home.readMore": "Read more about me",
@@ -35,10 +34,10 @@ export const en = {
   "home.techStackSubtitle": "Technologies and tools I work with",
   "home.education": "Education",
   "home.educationText":
-    "Bachelor of Information Technology at University of Transport Ho Chi Minh City (2023-Present). Previously graduated from Cao Lanh 2 High School (2020-2023).",
+    "Graduated with a Bachelor of Information Technology from Ho Chi Minh City University of Transport (2023-present). Prior to that, graduated from Nguyen Thai Binh High School (2020-2023).",
   "home.interests": "Interests",
   "home.interestsText":
-    "Web development, exploring new tech, rap music, football (Real Madrid fan), cat lover, and enjoying coffee sessions with close friends.",
+    "Web development, exploring new technologies, hitting the gym, and playing badminton with friends.",
   "home.goals": "Goals",
   "home.goalsText":
     "Short-term: Expand knowledge in my favorite technologies. Long-term: Become a full-stack leader and help colleagues around me grow.",
@@ -50,9 +49,9 @@ export const en = {
   "home.project2Title": "Task Management App",
   "home.project2Description":
     "A responsive task management application with drag-and-drop functionality and real-time updates.",
-  "home.project3Title": "Portfolio Website",
+  "home.project3Title": "UTH Conference Management System",
   "home.project3Description":
-    "A modern portfolio website built with React and TypeScript featuring smooth animations and responsive design.",
+    "UTH Conference Management System A complete platform for academic paper submission, peer review, and decision management.",
   "home.viewAllProjects": "View all projects",
   "home.ctaTitle": "Interested in working together?",
   "home.ctaText":
@@ -127,9 +126,9 @@ export const en = {
   "projects.project2Title": "Task Management App",
   "projects.project2Desc":
     "A responsive task management application with drag-and-drop functionality and real-time updates.",
-  "projects.project3Title": "Portfolio Website",
+  "projects.project3Title": "UTH Conference Management System",
   "projects.project3Desc":
-    "A modern portfolio website built with React and TypeScript featuring smooth animations and responsive design.",
+    "UTH Conference Management System A complete platform for academic paper submission, peer review, and decision management.",
   "projects.project4Title": "Weather Dashboard",
   "projects.project4Desc":
     "A weather dashboard that displays current weather and forecasts for multiple locations using a weather API.",

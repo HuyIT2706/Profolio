@@ -2,7 +2,6 @@ export const vi = {
   // Navigation
   "nav.home": "Trang chủ",
   "nav.skills": "Kỹ năng",
-  "nav.experience": "Kinh nghiệm",
   "nav.projects": "Dự án",
   "nav.about": "Giới thiệu",
   "nav.contact": "Liên hệ",
@@ -19,15 +18,15 @@ export const vi = {
   "home.greeting": "Xin chào, tôi là",
   "home.role": "Sinh viên & Lập trình viên Web",
   "home.description":
-    "Tôi là một lập trình viên web đam mê và là sinh viên tại Đại học Giao thông Vận tải TP.HCM, chuyên về phát triển ứng dụng web hiện đại với JavaScript, TypeScript, React, Node.js  Node.js, ExpressJs và NestJs.",
+    "Tôi là một nhà phát triển web đầy nhiệt huyết và là sinh viên tại Đại học Giao thông Thành phố Hồ Chí Minh, chuyên về tạo ra các ứng dụng web hiện đại bằng JavaScript, TypeScript, React, Node.js, NestJs.",
   "home.contactBtn": "Liên hệ với tôi",
   "home.resumeBtn": "Tải CV",
   "home.aboutTitle": "Về tôi",
   "home.aboutSubtitle": "Tìm hiểu thêm về tôi",
   "home.aboutText1":
-    "Tôi là Nguyễn Huỳnh Sang, một sinh viên tại Đại học Giao thông Vận tải TP.HCM với niềm đam mê phát triển web và kỹ thuật phần mềm.",
+    "Tôi tên là Bùi Văn Huy, sinh viên trường Đại học Giao thông Thành phố Hồ Chí Minh, và tôi đam mê phát triển web và kỹ thuật phần mềm.",
   "home.aboutText2":
-    "Tôi thích xây dựng ứng dụng web và khám phá các công nghệ mới. Mục tiêu của tôi là trở thành một leader full-stack đồng thời giúp đỡ mọi người xung quanh phát triển kỹ năng.",
+    "Tôi thích xây dựng các ứng dụng web và khám phá những công nghệ mới. Mục tiêu của tôi là trở thành một lập trình viên full-stack, đồng thời giúp đỡ người khác phát triển kỹ năng của họ và của chính tôi.",
   "home.university": "Trường đại học:",
   "home.location": "Địa điểm:",
   "home.readMore": "Đọc thêm về tôi",
@@ -35,10 +34,10 @@ export const vi = {
   "home.techStackSubtitle": "Công nghệ và công cụ tôi sử dụng",
   "home.education": "Học vấn",
   "home.educationText":
-    "Cử nhân Công nghệ Thông tin tại Đại học Giao thông Vận tải TP.HCM (2023-Hiện tại). Tốt nghiệp THPT Cao Lãnh 2 (2020-2023).",
+    "Tốt nghiệp Cử nhân Công nghệ Thông tin tại Đại học Giao thông Vận tải Thành phố Hồ Chí Minh (2023-nay). Trước đó, tốt nghiệp trường THPT Nguyễn Thái Bình (2020-2023).",
   "home.interests": "Sở thích",
   "home.interestsText":
-    "Phát triển web, khám phá công nghệ mới, nghe nhạc rap, đá bóng (fan Real Madrid), nuôi mèo và thích ngồi cafe cùng bạn bè thân thiết.",
+    "Phát triển web, khám phá các công nghệ mới, đến phòng tập thể dục và chơi cầu lông với bạn bè.",
   "home.goals": "Mục tiêu",
   "home.goalsText":
     "Ngắn hạn: Mở rộng kiến thức về các công nghệ yêu thích. Dài hạn: Trở thành leader full-stack và giúp đỡ đồng nghiệp xung quanh phát triển.",
@@ -50,9 +49,9 @@ export const vi = {
   "home.project2Title": "Ứng dụng quản lý công việc",
   "home.project2Description":
     "Một ứng dụng quản lý công việc đáp ứng với chức năng kéo và thả và cập nhật thời gian thực.",
-  "home.project3Title": "Trang web Portfolio",
+  "home.project3Title": "Hệ thống quản lý hội nghị UTH",
   "home.project3Description":
-    "Một trang web portfolio hiện đại được xây dựng với React và TypeScript với các hiệu ứng mượt mà và thiết kế đáp ứng.",
+    "Hệ thống quản lý hội nghị UTH: Một nền tảng hoàn chỉnh cho việc nộp bài báo khoa học, đánh giá ngang hàng và quản lý quyết định.",
   "home.viewAllProjects": "Xem tất cả dự án",
   "home.ctaTitle": "Quan tâm đến việc làm việc cùng nhau?",
   "home.ctaText":

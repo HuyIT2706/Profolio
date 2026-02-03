@@ -89,13 +89,12 @@ const Footer = () => {
               links={[
                 { to: "/", label: t("nav.home") },
                 { to: "/skills", label: t("nav.skills") },
-                { to: "/experience", label: t("nav.experience") },
+                { to: "/projects", label: t("nav.projects") },
               ]}
             />
             <FooterLinkGroup
               title={t("footer.more")}
               links={[
-                { to: "/projects", label: t("nav.projects") },
                 { to: "/about", label: t("nav.about") },
                 { to: "/contact", label: t("nav.contact") },
               ]}
@@ -112,20 +111,17 @@ const Footer = () => {
               {t("footer.connect")}
             </h3>
             <div className="flex gap-4">
-              <SocialLink
-                href="https://github.com/HuynhSang2005"
-                label="GitHub"
-              >
+              <SocialLink href="https://github.com/HuyIT2706" label="GitHub">
                 <Github size={20} />
               </SocialLink>
               <SocialLink
-                href="https://www.linkedin.com/in/nghuynhsang/"
+                href="https://www.linkedin.com/in/bvanhuy2706/"
                 label="LinkedIn"
               >
                 <Linkedin size={20} />
               </SocialLink>
               <SocialLink
-                href="https://www.facebook.com/ng.huynhsangg"
+                href="https://www.facebook.com/bui.van.huy.757044/"
                 label="Facebook"
               >
                 <svg
@@ -143,7 +139,7 @@ const Footer = () => {
                 </svg>
               </SocialLink>
               <SocialLink
-                href="https://www.instagram.com/ng.huynhsang/"
+                href="https://www.instagram.com/buivanhuy333/"
                 label="Instagram"
               >
                 <svg
@@ -162,7 +158,7 @@ const Footer = () => {
                   <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
                 </svg>
               </SocialLink>
-              <SocialLink href="mailto:huynhsang060305@gmail.com" label="Email">
+              <SocialLink href="mailto:buivanhuy2706@gmail.com" label="Email">
                 <Mail size={20} />
               </SocialLink>
             </div>
@@ -170,7 +166,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom section */}
-        <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-border text-text-light text-sm gap-4 text-center md:text-left">
+        <div className="flex flex-col md:flex-row justify-center items-center pt-8 border-t border-border text-text-light text-sm gap-4 text-center" >
           <p>
             &copy; {currentYear} Bùi Văn Huy {t("footer.rights")}
           </p>
