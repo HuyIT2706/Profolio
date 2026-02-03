@@ -145,7 +145,7 @@ const Home = () => {
               </a>
             </div>
 
-            <div className="flex gap-4">
+            <div className="flex gap-4 py-2.5">
               <SocialLink href="https://github.com/HuyIT2706" label="GitHub">
                 <Github size={20} />
               </SocialLink>
