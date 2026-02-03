@@ -1,91 +1,42 @@
+import { useEffect, useRef, useState } from "react";
 import { useLanguage } from "../contexts/LanguageContext";
 
 const Skills = () => {
   const { t } = useLanguage();
+  const skillsRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
 
-  const frontendSkills = [
-    { name: "JavaScript", level: 90 },
-    { name: "TypeScript", level: 85 },
-    { name: "React", level: 88 },
-    { name: "HTML & CSS", level: 92 },
-    { name: "Redux", level: 80 },
-    { name: "Responsive Design", level: 85 },
+  const skills = [
+    { name: "REACT / NEXT.JS", level: 88 },
+    { name: "NODE.JS / EXPRESS", level: 85 },
+    { name: "TYPESCRIPT/ JAVASCRIPT", level: 85 },
+    { name: "SQL / POSTGRESQL", level: 78 },
+    { name: "DOCKER / DEVOPS", level: 72 },
+    { name: "TAILWIND / CSS", level: 90 },
   ];
 
-  const backendSkills = [
-    { name: "Node.js", level: 85 },
-    { name: "Express.js", level: 82 },
-    { name: "Nest.js", level: 78 },
-    { name: "RESTful APIs", level: 88 },
-    { name: "MongoDB", level: 75 },
-    { name: "SQL", level: 70 },
-  ];
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
 
-  const toolsSkills = [
-    { name: "Git & GitHub", level: 90 },
-    { name: "Docker", level: 75 },
-    { name: "Postman", level: 85 },
-    { name: "VS Code", level: 95 },
-    { name: "npm", level: 88 },
-    { name: "Webpack", level: 70 },
-  ];
+    if (skillsRef.current) {
+      observer.observe(skillsRef.current);
+    }
 
-  const otherSkills = [
-    "Problem Solving",
-    "Team Collaboration",
-    "Agile Methodology",
-    "UI/UX Design",
-    "Responsive Design",
-    "Performance Optimization",
-    "Code Review",
-    "Testing",
-    "CI/CD",
-    "RESTful API Design",
-  ];
-
-  const learningItems = [
-    { title: "GraphQL", desc: t("skills.learning1") },
-    { title: "Next.js", desc: t("skills.learning2") },
-    { title: "AWS", desc: t("skills.learning3") },
-  ];
-
-  // Skill bar component
-  const SkillBar = ({ name, level }: { name: string; level: number }) => (
-    <div className="flex flex-col gap-2">
-      <div className="flex justify-between items-center">
-        <span className="font-medium">{name}</span>
-        <span className="text-sm text-text-light">{level}%</span>
-      </div>
-      <div className="h-2 bg-bg-alt rounded-full overflow-hidden">
-        <div
-          className="h-full bg-gradient-to-r from-gradient-start to-gradient-end rounded-full transition-all duration-1000"
-          style={{ width: `${level}%` }}
-        />
-      </div>
-    </div>
-  );
-
-  // Skills category component
-  const SkillsCategory = ({
-    title,
-    skills,
-  }: {
-    title: string;
-    skills: { name: string; level: number }[];
-  }) => (
-    <div className="bg-card rounded-2xl p-6 md:p-8 shadow-lg shadow-shadow">
-      <h2 className="text-xl md:text-2xl font-semibold mb-8 relative inline-block
-        after:content-[''] after:absolute after:bottom-[-8px] after:left-0 after:w-10 after:h-1
-        after:bg-gradient-to-r after:from-gradient-start after:to-gradient-end after:rounded-full">
-        {title}
-      </h2>
-      <div className="flex flex-col gap-6">
-        {skills.map((skill, index) => (
-          <SkillBar key={index} name={skill.name} level={skill.level} />
-        ))}
-      </div>
-    </div>
-  );
+    return () => {
+      if (skillsRef.current) {
+        observer.unobserve(skillsRef.current);
+      }
+    };
+  }, []);
 
   return (
     <div className="pt-16">
@@ -99,18 +50,62 @@ const Skills = () => {
         </div>
       </section>
 
-      {/* Skills Overview */}
+      {/* Skills  */}
       <section className="py-20">
-        <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <SkillsCategory title={t("skills.frontend")} skills={frontendSkills} />
-            <SkillsCategory title={t("skills.backend")} skills={backendSkills} />
-            <SkillsCategory title={t("skills.tools")} skills={toolsSkills} />
+        <div className="container max-w-[700px]">
+          <div 
+            ref={skillsRef}
+            className="rounded-2xl overflow-hidden shadow-2xl shadow-shadow border border-border"
+          >
+            {/* Terminal Header */}
+            <div className="flex items-center gap-2 px-4 py-3 bg-bg-alt border-b border-border">
+              <div className="flex gap-2">
+                <span className="w-3 h-3 rounded-full bg-red-500"></span>
+                <span className="w-3 h-3 rounded-full bg-yellow-500"></span>
+                <span className="w-3 h-3 rounded-full bg-green-500"></span>
+              </div>
+              <span className="flex-1 text-center text-sm font-mono text-text-light">SKILLS.EXE</span>
+            </div>
+
+            {/* Terminal Content */}
+            <div className="p-6 md:p-8 font-mono">
+              <div className="flex flex-col gap-6">
+                {skills.map((skill, index) => (
+                  <div key={index} className="flex flex-col gap-2">
+                    {/* Skill Name */}
+                    <div className="flex items-center gap-3">
+                      <span className="text-primary font-bold">&gt;</span>
+                      <span className="text-sm md:text-base font-semibold tracking-wide">{skill.name}</span>
+                    </div>
+                    
+                    {/* Progress Bar with Animation */}
+                    <div className="flex items-center gap-3 ml-5">
+                      <div className="flex-1 h-3 bg-bg-alt rounded-full overflow-hidden">
+                        <div
+                          className="h-full bg-gradient-to-r from-gradient-start to-gradient-end rounded-full transition-all duration-1000 ease-out"
+                          style={{ 
+                            width: isVisible ? `${skill.level}%` : '0%',
+                            transitionDelay: `${index * 150}ms`
+                          }}
+                        />
+                      </div>
+                      <span className="text-xs text-text-light w-10 text-right">{skill.level}%</span>
+                    </div>
+                  </div>
+                ))}
+
+                {/* Cursor */}
+                <div className="flex items-center gap-3 mt-2">
+                  <span className="text-primary font-bold">&gt;</span>
+                  <span className="w-2 h-5 bg-primary animate-pulse"></span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Other Skills */}
+      {/* Other Skills Tags */}
       <section className="py-20 bg-bg-alt">
         <div className="container">
           <div className="text-center mb-12">
@@ -124,12 +119,23 @@ const Skills = () => {
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-4 justify-center">
-            {otherSkills.map((skill, index) => (
+          <div className="flex flex-wrap gap-4 justify-center max-w-[800px] mx-auto">
+            {[
+              "Problem Solving",
+              "Team Collaboration",
+              "Agile / Scrum",
+              "UI/UX Design",
+              "RESTful APIs",
+              "Git & GitHub",
+              "Testing",
+              "CI/CD",
+              "Performance Optimization",
+              "Code Review",
+            ].map((skill, index) => (
               <div
                 key={index}
-                className="bg-card px-5 py-3 rounded-full font-medium shadow-md shadow-shadow
-                  transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                className="bg-card px-5 py-3 rounded-full font-medium shadow-md shadow-shadow border border-border
+                  transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-primary"
               >
                 {skill}
               </div>
@@ -138,8 +144,7 @@ const Skills = () => {
         </div>
       </section>
 
-      {/* Currently Learning */}
-      <section className="py-20">
+      {/* <section className="py-20">
         <div className="container">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-2 relative inline-block
@@ -152,21 +157,27 @@ const Skills = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {learningItems.map((item, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-[900px] mx-auto">
+            {[
+              { title: "GraphQL", desc: t("skills.learning1") },
+              { title: "AWS / Cloud", desc: t("skills.learning2") },
+              { title: "AI / Machine Learning", desc: t("skills.learning3") },
+            ].map((item, index) => (
               <div
                 key={index}
-                className="bg-card rounded-2xl p-8 text-center shadow-lg shadow-shadow
-                  transition-all duration-300 hover:-translate-y-1"
+                className="bg-card rounded-2xl p-6 text-center shadow-lg shadow-shadow border border-border
+                  transition-all duration-300 hover:-translate-y-1 hover:border-primary"
               >
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-gradient-start to-gradient-end mx-auto mb-6" />
-                <h3 className="text-xl font-semibold mb-4">{item.title}</h3>
+                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-gradient-start to-gradient-end mx-auto mb-4 flex items-center justify-center">
+                  <span className="text-white font-bold text-xl">{index + 1}</span>
+                </div>
+                <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
                 <p className="text-text-light text-sm">{item.desc}</p>
               </div>
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };
