@@ -1,31 +1,7 @@
-"use client"
-
-import { useEffect } from "react"
-import { useLanguage } from "../contexts/LanguageContext"
-import "../styles/Skills.css"
+import { useLanguage } from "../contexts/LanguageContext";
 
 const Skills = () => {
-  const { t } = useLanguage()
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animate-in")
-          }
-        })
-      },
-      { threshold: 0.1 },
-    )
-
-    const elements = document.querySelectorAll(".animate")
-    elements.forEach((el) => observer.observe(el))
-
-    return () => {
-      elements.forEach((el) => observer.unobserve(el))
-    }
-  }, [])
+  const { t } = useLanguage();
 
   const frontendSkills = [
     { name: "JavaScript", level: 90 },
@@ -34,7 +10,7 @@ const Skills = () => {
     { name: "HTML & CSS", level: 92 },
     { name: "Redux", level: 80 },
     { name: "Responsive Design", level: 85 },
-  ]
+  ];
 
   const backendSkills = [
     { name: "Node.js", level: 85 },
@@ -43,7 +19,7 @@ const Skills = () => {
     { name: "RESTful APIs", level: 88 },
     { name: "MongoDB", level: 75 },
     { name: "SQL", level: 70 },
-  ]
+  ];
 
   const toolsSkills = [
     { name: "Git & GitHub", level: 90 },
@@ -52,135 +28,147 @@ const Skills = () => {
     { name: "VS Code", level: 95 },
     { name: "npm", level: 88 },
     { name: "Webpack", level: 70 },
-  ]
+  ];
+
+  const otherSkills = [
+    "Problem Solving",
+    "Team Collaboration",
+    "Agile Methodology",
+    "UI/UX Design",
+    "Responsive Design",
+    "Performance Optimization",
+    "Code Review",
+    "Testing",
+    "CI/CD",
+    "RESTful API Design",
+  ];
+
+  const learningItems = [
+    { title: "GraphQL", desc: t("skills.learning1") },
+    { title: "Next.js", desc: t("skills.learning2") },
+    { title: "AWS", desc: t("skills.learning3") },
+  ];
+
+  // Skill bar component
+  const SkillBar = ({ name, level }: { name: string; level: number }) => (
+    <div className="flex flex-col gap-2">
+      <div className="flex justify-between items-center">
+        <span className="font-medium">{name}</span>
+        <span className="text-sm text-text-light">{level}%</span>
+      </div>
+      <div className="h-2 bg-bg-alt rounded-full overflow-hidden">
+        <div
+          className="h-full bg-gradient-to-r from-gradient-start to-gradient-end rounded-full transition-all duration-1000"
+          style={{ width: `${level}%` }}
+        />
+      </div>
+    </div>
+  );
+
+  // Skills category component
+  const SkillsCategory = ({
+    title,
+    skills,
+  }: {
+    title: string;
+    skills: { name: string; level: number }[];
+  }) => (
+    <div className="bg-card rounded-2xl p-6 md:p-8 shadow-lg shadow-shadow">
+      <h2 className="text-xl md:text-2xl font-semibold mb-8 relative inline-block
+        after:content-[''] after:absolute after:bottom-[-8px] after:left-0 after:w-10 after:h-1
+        after:bg-gradient-to-r after:from-gradient-start after:to-gradient-end after:rounded-full">
+        {title}
+      </h2>
+      <div className="flex flex-col gap-6">
+        {skills.map((skill, index) => (
+          <SkillBar key={index} name={skill.name} level={skill.level} />
+        ))}
+      </div>
+    </div>
+  );
 
   return (
-    <div className="skills-page">
-      <section className="skills-hero">
+    <div className="pt-16">
+      {/* Hero Section */}
+      <section className="py-20 bg-gradient-to-br from-gradient-start to-gradient-end text-white text-center">
         <div className="container">
-          <div className="section-header animate">
-            <h1 className="page-title">{t("skills.title")}</h1>
-            <p className="page-subtitle">{t("skills.subtitle")}</p>
+          <h1 className="text-4xl md:text-5xl font-bold mb-2">{t("skills.title")}</h1>
+          <p className="text-lg md:text-xl max-w-[700px] mx-auto opacity-90">
+            {t("skills.subtitle")}
+          </p>
+        </div>
+      </section>
+
+      {/* Skills Overview */}
+      <section className="py-20">
+        <div className="container">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <SkillsCategory title={t("skills.frontend")} skills={frontendSkills} />
+            <SkillsCategory title={t("skills.backend")} skills={backendSkills} />
+            <SkillsCategory title={t("skills.tools")} skills={toolsSkills} />
           </div>
         </div>
       </section>
 
-      <section className="skills-overview">
+      {/* Other Skills */}
+      <section className="py-20 bg-bg-alt">
         <div className="container">
-          <div className="skills-grid">
-            <div className="skills-category animate">
-              <h2 className="category-title">{t("skills.frontend")}</h2>
-              <div className="skills-list">
-                {frontendSkills.map((skill, index) => (
-                  <div key={index} className="skill-item">
-                    <div className="skill-header">
-                      <span className="skill-name">{skill.name}</span>
-                      <span className="skill-level">{skill.level}%</span>
-                    </div>
-                    <div className="skill-bar">
-                      <div className="skill-progress" style={{ width: `${skill.level}%` }}></div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-2 relative inline-block
+              after:content-[''] after:absolute after:bottom-[-8px] after:left-1/2 after:-translate-x-1/2
+              after:w-12 after:h-1 after:bg-gradient-to-r after:from-gradient-start after:to-gradient-end after:rounded-full">
+              {t("skills.otherTitle")}
+            </h2>
+            <p className="text-text-light text-lg max-w-[600px] mx-auto mt-4">
+              {t("skills.otherSubtitle")}
+            </p>
+          </div>
 
-            <div className="skills-category animate">
-              <h2 className="category-title">{t("skills.backend")}</h2>
-              <div className="skills-list">
-                {backendSkills.map((skill, index) => (
-                  <div key={index} className="skill-item">
-                    <div className="skill-header">
-                      <span className="skill-name">{skill.name}</span>
-                      <span className="skill-level">{skill.level}%</span>
-                    </div>
-                    <div className="skill-bar">
-                      <div className="skill-progress" style={{ width: `${skill.level}%` }}></div>
-                    </div>
-                  </div>
-                ))}
+          <div className="flex flex-wrap gap-4 justify-center">
+            {otherSkills.map((skill, index) => (
+              <div
+                key={index}
+                className="bg-card px-5 py-3 rounded-full font-medium shadow-md shadow-shadow
+                  transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+              >
+                {skill}
               </div>
-            </div>
-
-            <div className="skills-category animate">
-              <h2 className="category-title">{t("skills.tools")}</h2>
-              <div className="skills-list">
-                {toolsSkills.map((skill, index) => (
-                  <div key={index} className="skill-item">
-                    <div className="skill-header">
-                      <span className="skill-name">{skill.name}</span>
-                      <span className="skill-level">{skill.level}%</span>
-                    </div>
-                    <div className="skill-bar">
-                      <div className="skill-progress" style={{ width: `${skill.level}%` }}></div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="other-skills">
+      {/* Currently Learning */}
+      <section className="py-20">
         <div className="container">
-          <div className="section-header animate">
-            <h2 className="section-title">{t("skills.otherTitle")}</h2>
-            <p className="section-subtitle">{t("skills.otherSubtitle")}</p>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-2 relative inline-block
+              after:content-[''] after:absolute after:bottom-[-8px] after:left-1/2 after:-translate-x-1/2
+              after:w-12 after:h-1 after:bg-gradient-to-r after:from-gradient-start after:to-gradient-end after:rounded-full">
+              {t("skills.learningTitle")}
+            </h2>
+            <p className="text-text-light text-lg max-w-[600px] mx-auto mt-4">
+              {t("skills.learningSubtitle")}
+            </p>
           </div>
 
-          <div className="tags-container animate">
-            <div className="skill-tag">Problem Solving</div>
-            <div className="skill-tag">Team Collaboration</div>
-            <div className="skill-tag">Agile Methodology</div>
-            <div className="skill-tag">UI/UX Design</div>
-            <div className="skill-tag">Responsive Design</div>
-            <div className="skill-tag">Performance Optimization</div>
-            <div className="skill-tag">Code Review</div>
-            <div className="skill-tag">Testing</div>
-            <div className="skill-tag">CI/CD</div>
-            <div className="skill-tag">RESTful API Design</div>
-          </div>
-        </div>
-      </section>
-
-      <section className="learning">
-        <div className="container">
-          <div className="section-header animate">
-            <h2 className="section-title">{t("skills.learningTitle")}</h2>
-            <p className="section-subtitle">{t("skills.learningSubtitle")}</p>
-          </div>
-
-          <div className="learning-grid">
-            <div className="learning-item animate">
-              <div className="learning-icon">
-                <div className="icon-placeholder"></div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {learningItems.map((item, index) => (
+              <div
+                key={index}
+                className="bg-card rounded-2xl p-8 text-center shadow-lg shadow-shadow
+                  transition-all duration-300 hover:-translate-y-1"
+              >
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-gradient-start to-gradient-end mx-auto mb-6" />
+                <h3 className="text-xl font-semibold mb-4">{item.title}</h3>
+                <p className="text-text-light text-sm">{item.desc}</p>
               </div>
-              <h3 className="learning-title">GraphQL</h3>
-              <p className="learning-description">{t("skills.learning1")}</p>
-            </div>
-
-            <div className="learning-item animate">
-              <div className="learning-icon">
-                <div className="icon-placeholder"></div>
-              </div>
-              <h3 className="learning-title">Next.js</h3>
-              <p className="learning-description">{t("skills.learning2")}</p>
-            </div>
-
-            <div className="learning-item animate">
-              <div className="learning-icon">
-                <div className="icon-placeholder"></div>
-              </div>
-              <h3 className="learning-title">AWS</h3>
-              <p className="learning-description">{t("skills.learning3")}</p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
     </div>
-  )
-}
+  );
+};
 
-export default Skills
-
+export default Skills;

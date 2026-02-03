@@ -1,54 +1,10 @@
-"use client";
-
-import { useEffect } from "react";
 import { useLanguage } from "../contexts/LanguageContext";
 import { Github, ExternalLink } from "lucide-react";
-import "../styles/Projects.css";
 
 const Projects = () => {
   const { t } = useLanguage();
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animate-in");
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    const elements = document.querySelectorAll(".animate");
-    elements.forEach((el) => observer.observe(el));
-
-    return () => {
-      elements.forEach((el) => observer.unobserve(el));
-    };
-  }, []);
-
   const projects = [
-    // {
-    //   id: 1,
-    //   title: t("projects.project1Title"),
-    //   description: t("projects.project1Desc"),
-    //   image: "/placeholder.jpg",
-    //   tags: ["React", "Node.js", "Express", "MongoDB"],
-    //   github: "https://github.com/",
-    //   live: "https://example.com/",
-    //   featured: true,
-    // },
-    // {
-    //   id: 2,
-    //   title: t("projects.project2Title"),
-    //   description: t("projects.project2Desc"),
-    //   image: "/placeholder.jpg",
-    //   tags: ["React", "TypeScript", "Firebase"],
-    //   github: "https://github.com/",
-    //   live: "https://example.com/",
-    //   featured: true,
-    // },
     {
       id: 1,
       title: t("projects.project3Title"),
@@ -59,74 +15,64 @@ const Projects = () => {
       live: "https://huynhsang.id.vn",
       featured: true,
     },
-    // {
-    //   id: 4,
-    //   title: t("projects.project4Title"),
-    //   description: t("projects.project4Desc"),
-    //   image: "/placeholder.jpg",
-    //   tags: ["JavaScript", "API Integration", "CSS"],
-    //   github: "https://github.com/",
-    //   live: "https://example.com/",
-    // },
-    // {
-    //   id: 5,
-    //   title: t("projects.project5Title"),
-    //   description: t("projects.project5Desc"),
-    //   image: "/placeholder.jpg",
-    //   tags: ["React", "Node.js", "Express", "MongoDB"],
-    //   github: "https://github.com/",
-    //   live: "https://example.com/",
-    // },
-    // {
-    //   id: 6,
-    //   title: t("projects.project6Title"),
-    //   description: t("projects.project6Desc"),
-    //   image: "/placeholder.jpg",
-    //   tags: ["React", "Socket.io", "Node.js", "Express"],
-    //   github: "https://github.com/",
-    //   live: "https://example.com/",
-    // },
   ];
 
   return (
-    <div className="projects-page">
-      <section className="projects-hero">
+    <div className="pt-16">
+      {/* Hero Section */}
+      <section className="py-20 bg-gradient-to-br from-gradient-start to-gradient-end text-white text-center">
         <div className="container">
-          <div className="section-header animate">
-            <h1 className="page-title">{t("projects.title")}</h1>
-            <p className="page-subtitle">{t("projects.subtitle")}</p>
-          </div>
+          <h1 className="text-4xl md:text-5xl font-bold mb-2">{t("projects.title")}</h1>
+          <p className="text-lg md:text-xl max-w-[700px] mx-auto opacity-90">
+            {t("projects.subtitle")}
+          </p>
         </div>
       </section>
 
-      <section className="featured-section">
+      {/* Featured Projects */}
+      <section className="py-20">
         <div className="container">
-          <div className="featured-projects-grid">
+          <div className="flex flex-col gap-16">
             {projects
               .filter((project) => project.featured)
-              .map((project) => (
-                <div key={project.id} className="featured-project animate">
-                  <div className="featured-project-image">
-                    <div className="image-placeholder project-placeholder"></div>
-                  </div>
-                  <div className="featured-project-content">
-                    <h2 className="featured-project-title">{project.title}</h2>
-                    <p className="featured-project-description">
-                      {project.description}
-                    </p>
-                    <div className="featured-project-tags">
-                      {project.tags.map((tag, index) => (
-                        <span key={index} className="tag">
+              .map((project, index) => (
+                <div
+                  key={project.id}
+                  className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${
+                    index % 2 === 1 ? "lg:direction-rtl" : ""
+                  }`}
+                >
+                  {/* Image */}
+                  <div
+                    className={`h-[250px] md:h-[350px] rounded-2xl overflow-hidden shadow-xl shadow-shadow
+                      bg-gradient-to-br from-gradient-start to-gradient-end ${
+                        index % 2 === 1 ? "lg:order-2" : ""
+                      }`}
+                  />
+
+                  {/* Content */}
+                  <div className={`flex flex-col gap-6 ${index % 2 === 1 ? "lg:order-1" : ""}`}>
+                    <h2 className="text-2xl md:text-3xl font-bold">{project.title}</h2>
+                    <p className="text-text-light leading-relaxed">{project.description}</p>
+
+                    <div className="flex flex-wrap gap-2">
+                      {project.tags.map((tag, i) => (
+                        <span
+                          key={i}
+                          className="bg-bg-alt px-3 py-1 rounded-full text-xs font-medium"
+                        >
                           {tag}
                         </span>
                       ))}
                     </div>
-                    <div className="featured-project-links">
+
+                    <div className="flex gap-4">
                       <a
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="primary-btn"
+                        className="inline-flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-lg font-medium
+                          transition-all duration-300 hover:bg-primary-hover hover:-translate-y-0.5"
                       >
                         <Github size={16} />
                         {t("projects.viewCode")}
@@ -135,7 +81,8 @@ const Projects = () => {
                         href={project.live}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="secondary-btn"
+                        className="inline-flex items-center gap-2 bg-transparent text-text px-5 py-2.5 rounded-lg font-medium
+                          border border-border transition-all duration-300 hover:bg-bg-alt hover:-translate-y-0.5"
                       >
                         <ExternalLink size={16} />
                         {t("projects.viewLive")}
@@ -148,34 +95,51 @@ const Projects = () => {
         </div>
       </section>
 
-      <section className="all-projects">
+      {/* All Projects */}
+      <section className="py-20 bg-bg-alt">
         <div className="container">
-          <div className="section-header animate">
-            <h2 className="section-title">{t("projects.allProjectsTitle")}</h2>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-2 relative inline-block
+              after:content-[''] after:absolute after:bottom-[-8px] after:left-1/2 after:-translate-x-1/2
+              after:w-12 after:h-1 after:bg-gradient-to-r after:from-gradient-start after:to-gradient-end after:rounded-full">
+              {t("projects.allProjectsTitle")}
+            </h2>
           </div>
 
-          <div className="projects-grid">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project) => (
-              <div key={project.id} className="project-card animate">
-                <div className="project-image">
-                  <div className="image-placeholder project-placeholder"></div>
-                </div>
-                <div className="project-content">
-                  <h3 className="project-title">{project.title}</h3>
-                  <p className="project-description">{project.description}</p>
-                  <div className="project-tags">
-                    {project.tags.map((tag, index) => (
-                      <span key={index} className="tag">
+              <div
+                key={project.id}
+                className="bg-card rounded-2xl overflow-hidden shadow-lg shadow-shadow
+                  transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+              >
+                {/* Image placeholder */}
+                <div className="w-full h-[200px] bg-gradient-to-br from-gradient-start to-gradient-end" />
+
+                {/* Content */}
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold mb-3">{project.title}</h3>
+                  <p className="text-text-light text-sm leading-relaxed mb-4">
+                    {project.description}
+                  </p>
+
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.tags.map((tag, i) => (
+                      <span
+                        key={i}
+                        className="bg-bg-alt px-3 py-1 rounded-full text-xs font-medium"
+                      >
                         {tag}
                       </span>
                     ))}
                   </div>
-                  <div className="project-links">
+
+                  <div className="flex gap-4">
                     <a
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="project-link"
+                      className="text-text transition-colors duration-300 hover:text-primary"
                       aria-label={t("projects.viewCode")}
                     >
                       <Github size={18} />
@@ -184,7 +148,7 @@ const Projects = () => {
                       href={project.live}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="project-link"
+                      className="text-text transition-colors duration-300 hover:text-primary"
                       aria-label={t("projects.viewLive")}
                     >
                       <ExternalLink size={18} />
