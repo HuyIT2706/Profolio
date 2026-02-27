@@ -15,8 +15,10 @@ import {
   Heart,
   Target,
 } from "lucide-react";
-import Avatar from "../assets/avatar.jpg";
+import Avatar from "../assets/avatar.png";
+import Avatar1 from "../assets/avatar1.jpg";
 import ProjectUth from "../assets/project1.jpg";
+import CV from "../assets/BuiVanHuyCV.pdf";
 
 const Home = () => {
   const { t } = useLanguage();
@@ -135,7 +137,7 @@ const Home = () => {
                 <ArrowRight size={16} />
               </Link>
               <a
-                href="/resume.pdf"
+                href={CV} target="_blank"
                 className="inline-flex items-center gap-2 bg-transparent text-text px-6 py-3 rounded-lg font-medium
                   border border-border transition-all duration-300 hover:bg-bg-alt hover:-translate-y-0.5"
                 download
@@ -481,7 +483,7 @@ const Home = () => {
       <section className="relative min-h-[400px] md:min-h-[500px] overflow-hidden">
         <img
           className="absolute inset-0 w-full h-full object-cover "
-          src={Avatar}
+          src={Avatar1}
           alt="CTA Background"
         />
         <div className="absolute inset-0 bg-bg opacity-70" />

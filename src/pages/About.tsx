@@ -1,5 +1,5 @@
 import { useLanguage } from "../contexts/LanguageContext";
-import Avatar from "../assets/avatar.jpg"
+import Avatar from "../assets/avatar.png";
 import {
   Github,
   Linkedin,
@@ -8,7 +8,7 @@ import {
   Facebook,
   Instagram,
 } from "lucide-react";
-
+import CV from "../assets/BuiVanHuyCV.pdf";
 const About = () => {
   const { t } = useLanguage();
 
@@ -84,7 +84,7 @@ const About = () => {
               </div>
 
               <a
-                href="/resume.pdf"
+                href={CV} target="_blank"
                 className="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-lg font-medium
                   transition-all duration-300 hover:bg-primary-hover hover:-translate-y-0.5"
                 download
