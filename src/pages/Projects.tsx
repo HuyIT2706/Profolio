@@ -21,7 +21,7 @@ const Projects = () => {
         "Tailwind",
       ],
       github: "https://github.com/HuyIT2706/UTH-Conference-Management-System",
-      live: "uth-confm.vercel.app",
+      live: "https://www.uthconfms.io.vn/",
       featured: true,
     },
   ];
