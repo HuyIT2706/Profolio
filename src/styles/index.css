@@ -48,3 +48,40 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
+
+@property --border-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.animated-border {
+  position: relative;
+  border: 2px solid var(--color-border);
+  animation: border-rotate 2s linear infinite;
+  background: 
+    linear-gradient(var(--color-card), var(--color-card)) padding-box,
+    conic-gradient(
+      from var(--border-angle),
+      transparent 0%,
+      transparent 75%,
+      #9333ea 80%,
+      #ec4899 85%,
+      #3b82f6 90%,
+      #10b981 95%,
+      transparent 100%
+    ) border-box;
+  border-color: transparent;
+}
+
+@keyframes border-rotate {
+  to {
+    --border-angle: 360deg;
+  }
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}

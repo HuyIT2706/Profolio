@@ -177,7 +177,7 @@ const Home = () => {
 
           <div className="order-1 lg:order-2 flex justify-center items-center">
             <div
-              className="relative w-full max-w-[400px] lg:max-w-[400px] md:max-w-[300px] aspect-square rounded-2xl overflow-hidden
+              className="animated-border relative w-full max-w-[400px] lg:max-w-[400px] md:max-w-[300px] aspect-square rounded-2xl overflow-hidden
               bg-gradient-to-br from-gradient-start to-gradient-end shadow-2xl shadow-shadow"
             >
               <img
@@ -271,7 +271,7 @@ const Home = () => {
               ].map((card, index) => (
                 <div
                   key={index}
-                  className="bg-card rounded-2xl p-6 shadow-lg shadow-shadow transition-all duration-300
+                  className="animated-border bg-card rounded-2xl p-6 shadow-lg shadow-shadow transition-all duration-300
                     hover:-translate-y-1 hover:shadow-xl"
                   data-animate
                 >
@@ -417,7 +417,7 @@ const Home = () => {
             {projects.map((project) => (
               <div
                 key={project.id}
-                className="bg-card rounded-2xl overflow-hidden shadow-lg shadow-shadow
+                className="animated-border bg-card rounded-2xl overflow-hidden shadow-lg shadow-shadow
                   transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
                 data-animate
               >

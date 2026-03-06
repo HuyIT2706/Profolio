@@ -5,7 +5,7 @@ import { useLanguage } from "../contexts/LanguageContext";
 import { Sun, Moon, Menu, X, Home, User, Briefcase, Code, Mail, Monitor } from "lucide-react";
 
 const Header = () => {
-  const { theme, setTheme } = useTheme();
+  const { theme, toggleThemeWithAnimation } = useTheme();
   const { language, setLanguage, t } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -41,13 +41,6 @@ const Header = () => {
     if (theme === "light") return <Sun size={18} />;
     if (theme === "dark") return <Moon size={18} />;
     return <Monitor size={18} />;
-  };
-
-  // Cycle through themes
-  const cycleTheme = () => {
-    if (theme === "light") setTheme("dark");
-    else if (theme === "dark") setTheme("system");
-    else setTheme("light");
   };
 
   return (
@@ -109,7 +102,7 @@ const Header = () => {
             {/* Theme Toggle */}
             <button
               className="flex items-center justify-center w-8 h-8 rounded-full text-text-light hover:text-text hover:bg-bg-alt/50 hover:cursor-pointer transition-all duration-300"
-              onClick={cycleTheme}
+              onClick={toggleThemeWithAnimation}
               aria-label="Toggle theme"
             >
               {getThemeIcon()}
@@ -168,7 +161,7 @@ const Header = () => {
           {/* Theme */}
           <button
             className="flex items-center justify-center w-10 h-10 rounded-full bg-bg-alt text-text "
-            onClick={cycleTheme}
+            onClick={toggleThemeWithAnimation}
           >
             {getThemeIcon()}
           </button>

@@ -54,14 +54,18 @@ const Projects = () => {
                   }`}
                 >
                   {/* Image */}
-                  <img
-                    className={`h-[250px] md:h-[350px] rounded-2xl overflow-hidden object-cover shadow-xl shadow-shadow
+                  <div
+                    className={`animated-border h-[250px] md:h-[350px] rounded-2xl overflow-hidden shadow-xl shadow-shadow
                       bg-gradient-to-br from-gradient-start to-gradient-end ${
                         index % 2 === 1 ? "lg:order-2" : ""
                       }`}
-                    src={Project1}
-                    alt="UTH ConFms"
-                  />
+                  >
+                    <img
+                      className="w-full h-full object-cover"
+                      src={Project1}
+                      alt="UTH ConFms"
+                    />
+                  </div>
 
                   {/* Content */}
                   <div

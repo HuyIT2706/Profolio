@@ -55,7 +55,7 @@ const About = () => {
             {/* Left - Image & Social */}
             <div className="flex flex-col items-center gap-8 lg:order-1 order-first">
               <div
-                className="relative w-full max-w-[400px] lg:max-w-[400px] md:max-w-[300px] aspect-square rounded-2xl overflow-hidden
+                className="animated-border relative w-full max-w-[400px] lg:max-w-[400px] md:max-w-[300px] aspect-square rounded-2xl overflow-hidden
               bg-gradient-to-br from-gradient-start to-gradient-end shadow-2xl shadow-shadow"
               >
                 <img
@@ -211,7 +211,7 @@ const About = () => {
               ].map((item, index) => (
                 <div
                   key={index}
-                  className="bg-card rounded-2xl p-8 text-center shadow-lg shadow-shadow
+                  className="animated-border bg-card rounded-2xl p-8 text-center shadow-lg shadow-shadow
                     transition-all duration-300 hover:-translate-y-1"
                 >
                   <div className="w-16 h-16 rounded-full bg-gradient-to-br from-gradient-start to-gradient-end mx-auto mb-6" />
@@ -232,7 +232,7 @@ const About = () => {
               {t("about.goals")}
             </h2>
 
-            <div className="bg-card rounded-2xl p-8 shadow-lg shadow-shadow flex flex-col gap-6">
+            <div className="animated-border bg-card rounded-2xl p-8 shadow-lg shadow-shadow flex flex-col gap-6">
               <p className="text-text leading-relaxed">
                 {t("about.goalsParagraph1")}
               </p>
