@@ -3,10 +3,12 @@ import { Outlet } from "react-router";
 import Footer from "../components/Footer";
 import ScrollApp from "../util/ScrollApp";
 import ParticleStars from "../components/ParticleStars";
+import CustomCursor from "../components/CustomCursor";
 
 const LayoutApp = () => {
   return (
     <div className="min-h-screen flex flex-col bg-bg text-text">
+      <CustomCursor />
       <ParticleStars />
       <ScrollApp />
       <Header />
